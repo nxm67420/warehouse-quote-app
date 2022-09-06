@@ -1,6 +1,8 @@
-import logo from './logo.svg';
+//Component Class, Displays Single Page
+
 import './App.css';
-import {Component} from "react";
+import React, {Component} from "react";
+import ListStudentComponent from './components/ListStudentComponent';
 
 class App extends Component {
 
@@ -21,13 +23,8 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-                <header className="App-header">
-                    <img src={logo} className="App-logo" alt="logo"/>
+                <ListStudentComponent />
                     <h3 className="App-title">{this.state.message}</h3>
-                </header>
-                <p className="App-intro">
-                    To get started, edit <code>src/App.js</code> and save to reload.
-                </p>
             </div>
         );
     }
