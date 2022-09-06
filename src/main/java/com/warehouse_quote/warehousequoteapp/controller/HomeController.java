@@ -9,6 +9,7 @@ import java.util.Date;
 public class HomeController {
     @GetMapping("/api/home")
     public String home() {
-        return "Hello, the time at the server is now " + new Date() + "\n";
+
+        return "Timestamp : " + new Date() + "\n";
     }
 }

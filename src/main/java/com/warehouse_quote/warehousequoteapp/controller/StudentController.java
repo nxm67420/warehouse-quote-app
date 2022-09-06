@@ -16,20 +16,19 @@ public class StudentController {
     @Autowired
     private StudentRepository repository;
 
-    @PostMapping("/addStudent")
-    public String saveStudent(@RequestBody Student student){
-        Student newStudent = new Student(
+    //Works
+    @PostMapping("/saveStudent")
+    public Student createStudent(@RequestBody Student student){
+        Student _student = repository.save(new Student(
                 student.getFirstName(),
                 student.getLastName(),
                 student.getAge(),
                 student.getLevel(),
-                student.getSeniority(),
-                student.getMajor()
-        );
-        repository.save(newStudent);
-        return "Added Student : " + newStudent.getFirstName() + ", " + newStudent.getLastName();
+                student.getMajor(),
+                student.getSeniority()
+        ));
+        return repository.save(_student);
     }
-
 
     /*
     @PutMapping("/edit/{id}")
@@ -48,11 +47,13 @@ public class StudentController {
         return repository.findAll();
     }
 
+    //Works
     @GetMapping("/findAllStudents/{id}")
     public Optional<Student> getStudent(@PathVariable String id){
         return repository.findById(id);
     }
 
+    //Works
     @DeleteMapping("/delete/{id}")
     public String deleteStudent(@PathVariable String id){
         repository.deleteById(id);
