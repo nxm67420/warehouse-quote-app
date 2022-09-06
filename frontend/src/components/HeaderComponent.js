@@ -7,7 +7,7 @@ const HeaderComponent = () => {
                 <nav className="navbar navbar-expand-md navbar-dark bg-dark">
                     <div>
                         <a className="navbar-brand" style={{color: "red"}}>
-                            University Students
+                            University of WarehouseQ
                         </a>
                     </div>
                 </nav>

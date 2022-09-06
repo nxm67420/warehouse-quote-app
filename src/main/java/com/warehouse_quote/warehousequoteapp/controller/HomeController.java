@@ -10,6 +10,6 @@ public class HomeController {
     @GetMapping("/api/home")
     public String home() {
 
-        return "Timestamp : " + new Date() + "\n";
+        return new Date() + "\n";
     }
 }
