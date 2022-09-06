@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import StudentService from "../services/StudentService";
+import {Link} from 'react-router-dom'
 
 const ListStudentComponent = () => {
 
@@ -17,6 +18,9 @@ const ListStudentComponent = () => {
     return(
         <div className="container">
             <h2 className="text-center"> List of Students</h2>
+            <nav>
+                <Link to="/saveStudent" className="btn btn-primary mb-2">Add Student</Link>
+            </nav>
             <table className="table table-bordered table-striped">
                 <thead>
                     <th>Student ID</th>
@@ -45,6 +49,6 @@ const ListStudentComponent = () => {
             </table>
         </div>
     )
-}
+};
 
 export default ListStudentComponent;

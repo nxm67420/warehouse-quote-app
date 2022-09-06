@@ -1,11 +1,12 @@
 //Component Class, Displays Single Page
 
 import './App.css';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import React, {Component} from "react";
 import ListStudentComponent from './components/ListStudentComponent';
 import HeaderComponent from "./components/HeaderComponent";
 import FooterComponent from "./components/FooterComponent";
+import AddStudentComponent from "./components/AddStudentComponent";
 
 class App extends Component {
 
@@ -30,10 +31,11 @@ class App extends Component {
                 <Router>
                     <HeaderComponent/>
                         <div className="container">
-                            <switch>
-                                <Route exact path="/" component={ListStudentComponent}></Route>
-                                <Route path="/students" component={ListStudentComponent}></Route>
-                            </switch>
+                            <Routes>
+                                <Route exact path="/" element={<ListStudentComponent/>}></Route>
+                                <Route path="/students" element={<ListStudentComponent/>}></Route>
+                                <Route path="/saveStudent" element={<AddStudentComponent/>}></Route>
+                            </Routes>
                         </div>
                     <FooterComponent/>
                 </Router>
