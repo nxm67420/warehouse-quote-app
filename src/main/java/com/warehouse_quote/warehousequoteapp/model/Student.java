@@ -53,6 +53,10 @@ public class Student{
         this.age = age;
     }
 
+    public String getId() {
+        return id;
+    }
+
     public String getLevel() {
         return level;
     }

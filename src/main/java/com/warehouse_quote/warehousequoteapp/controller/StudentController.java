@@ -20,6 +20,17 @@ public class StudentController {
         return "Added Student : " + student.getFirstName() + ", " + student.getLastName();
     }
 
+    /*
+    @PutMapping("/edit/{id}")
+    public Student update(@RequestBody Student student, @PathVariable String id){
+        Optional<Student> optionalStudent = repository.findById(student.getId());
+        if(optionalStudent.isPresent()){
+            repository.save(student);
+        }
+        return student;
+    }
+    */
+
     @GetMapping("/findAllStudents")
     public List<Student> getStudents(){
         return repository.findAll();
