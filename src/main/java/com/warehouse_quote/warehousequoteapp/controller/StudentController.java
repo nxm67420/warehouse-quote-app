@@ -10,16 +10,26 @@ import java.util.Optional;
 
 @CrossOrigin("*")
 @RestController
+@RequestMapping("/api")
 public class StudentController {
 
     @Autowired
     private StudentRepository repository;
 
-    @PostMapping("api/addStudent")
+    @PostMapping("/addStudent")
     public String saveStudent(@RequestBody Student student){
-        repository.save(student);
-        return "Added Student : " + student.getFirstName() + ", " + student.getLastName();
+        Student newStudent = new Student(
+                student.getFirstName(),
+                student.getLastName(),
+                student.getAge(),
+                student.getLevel(),
+                student.getSeniority(),
+                student.getMajor()
+        );
+        repository.save(newStudent);
+        return "Added Student : " + newStudent.getFirstName() + ", " + newStudent.getLastName();
     }
+
 
     /*
     @PutMapping("/edit/{id}")
@@ -33,17 +43,17 @@ public class StudentController {
     */
 
     //Works
-    @GetMapping("api/findAllStudents")
+    @GetMapping("/findAllStudents")
     public List<Student> getStudents(){
         return repository.findAll();
     }
 
-    @GetMapping("api/findAllStudents/{id}")
+    @GetMapping("/findAllStudents/{id}")
     public Optional<Student> getStudent(@PathVariable String id){
         return repository.findById(id);
     }
 
-    @DeleteMapping("api/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public String deleteStudent(@PathVariable String id){
         repository.deleteById(id);
         return "Student Deleted : " + id;

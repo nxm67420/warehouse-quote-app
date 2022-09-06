@@ -3,6 +3,8 @@
 import './App.css';
 import React, {Component} from "react";
 import ListStudentComponent from './components/ListStudentComponent';
+import HeaderComponent from "./components/HeaderComponent";
+import FooterComponent from "./components/FooterComponent";
 
 class App extends Component {
 
@@ -23,8 +25,10 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-                <ListStudentComponent />
-                    <h3 className="App-title">{this.state.message}</h3>
+                <h3 className="App-title">{this.state.message}</h3>
+                <HeaderComponent/>
+                    <ListStudentComponent />
+                <FooterComponent/>
             </div>
         );
     }
