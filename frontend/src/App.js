@@ -1,6 +1,7 @@
 //Component Class, Displays Single Page
 
 import './App.css';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import React, {Component} from "react";
 import ListStudentComponent from './components/ListStudentComponent';
 import HeaderComponent from "./components/HeaderComponent";
@@ -26,9 +27,16 @@ class App extends Component {
         return (
             <div className="App">
                 <h3 className="App-title">{this.state.message}</h3>
-                <HeaderComponent/>
-                    <ListStudentComponent />
-                <FooterComponent/>
+                <Router>
+                    <HeaderComponent/>
+                        <div className="container">
+                            <switch>
+                                <Route exact path="/" component={ListStudentComponent}></Route>
+                                <Route path="/students" component={ListStudentComponent}></Route>
+                            </switch>
+                        </div>
+                    <FooterComponent/>
+                </Router>
             </div>
         );
     }
