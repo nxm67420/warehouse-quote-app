@@ -1,8 +1,18 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
+import StudentService from "../services/StudentService";
 
 const ListStudentComponent = () => {
 
     const [student, setStudents] = useState([]);
+
+    useEffect(() => {
+        StudentService.getAllStudents().then((response) => {
+            setStudents(response.data);
+            console.log(response.data);
+        }).catch(error => {
+            console.log(error)
+        })
+    }, []);
 
     return(
         <div className="container">

@@ -8,13 +8,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+@CrossOrigin("*")
 @RestController
 public class StudentController {
 
     @Autowired
     private StudentRepository repository;
 
-    @PostMapping("/addStudent")
+    @PostMapping("api/addStudent")
     public String saveStudent(@RequestBody Student student){
         repository.save(student);
         return "Added Student : " + student.getFirstName() + ", " + student.getLastName();
@@ -31,17 +32,18 @@ public class StudentController {
     }
     */
 
-    @GetMapping("/findAllStudents")
+    //Works
+    @GetMapping("api/findAllStudents")
     public List<Student> getStudents(){
         return repository.findAll();
     }
 
-    @GetMapping("/findAllStudents/{id}")
+    @GetMapping("api/findAllStudents/{id}")
     public Optional<Student> getStudent(@PathVariable String id){
         return repository.findById(id);
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("api/delete/{id}")
     public String deleteStudent(@PathVariable String id){
         repository.deleteById(id);
         return "Student Deleted : " + id;
