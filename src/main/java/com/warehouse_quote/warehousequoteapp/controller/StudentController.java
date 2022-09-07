@@ -8,9 +8,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/students")
 public class StudentController {
 
     @Autowired
@@ -42,19 +43,19 @@ public class StudentController {
     */
 
     //Works
-    @GetMapping("/findAllStudents")
+    @GetMapping
     public List<Student> getStudents(){
         return repository.findAll();
     }
 
     //Works
-    @GetMapping("/findAllStudents/{id}")
+    @GetMapping("{id}")
     public Optional<Student> getStudent(@PathVariable String id){
         return repository.findById(id);
     }
 
     //Works
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("{id}")
     public String deleteStudent(@PathVariable String id){
         repository.deleteById(id);
         return "Student Deleted : " + id;

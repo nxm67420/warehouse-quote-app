@@ -1,4 +1,6 @@
 import React, {useState} from 'react'
+import StudentService from "../services/StudentService";
+import {useNavigate} from 'react-router-dom';
 
 const AddStudentComponent = () => {
 
@@ -8,10 +10,18 @@ const AddStudentComponent = () => {
     const[level, setLevel] = useState(" ");
     const[major, setMajor] = useState(" ");
     const[seniority, setSeniority] = useState(" ");
+    const history = useNavigate();
 
     const saveStudent = (e) => {
         e.preventDefault();
         const student = {firstName, lastName, age, level, major, seniority};
+
+        StudentService.createStudent(student).then((response) => {
+            console.log(response.data);
+            history('/students');
+        }).catch(error => {
+            console.log(error);
+        });
         console.log(student);
     };
 

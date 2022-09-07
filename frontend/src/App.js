@@ -17,7 +17,7 @@ class App extends Component {
     }
 
     home = () => {
-        fetch("/api/home")
+        fetch("/api/students/home")
             .then(response => response.text())
             .then(message => {
                 this.setState({message});
@@ -34,7 +34,7 @@ class App extends Component {
                             <Routes>
                                 <Route exact path="/" element={<ListStudentComponent/>}></Route>
                                 <Route path="/students" element={<ListStudentComponent/>}></Route>
-                                <Route path="/saveStudent" element={<AddStudentComponent/>}></Route>
+                                <Route path="/registerStudent" element={<AddStudentComponent/>}></Route>
                             </Routes>
                         </div>
                     <FooterComponent/>
