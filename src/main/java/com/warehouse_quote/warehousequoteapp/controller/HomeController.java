@@ -7,8 +7,11 @@ import java.util.Date;
 
 @RestController
 public class HomeController {
+
     @GetMapping("/api/students/home")
     public String home() {
         return new Date() + "\n";
     }
+
+
 }

@@ -69,8 +69,11 @@ const AddStudentComponent = () => {
                                     <input type="text" name="seniority" className="form-control" value={seniority}
                                     onChange={(e) => setSeniority(e.target.value)}/>
                                 </div>
-
-                                <button className={"btn btn-success"} onClick = {(e) => saveStudent(e)}>register</button>
+                                <br/>
+                                <div className={"button-group"}>
+                                    <button className={"btn btn-success"} onClick = {(e) => saveStudent(e)}>register</button>
+                                    <button className={"btn btn-warning"} >cancel</button>
+                                </div>
                             </form>
                         </div>
                     </div>
